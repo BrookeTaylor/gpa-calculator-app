@@ -141,3 +141,5 @@ Description: GPA Calculator App Setup.
 * Deploy the application to GitHub pages 
 
         ng add angular-cli-ghpages 
+
+        ng deploy --base-href=/gpa-calculator-app/
