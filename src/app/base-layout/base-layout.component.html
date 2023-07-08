@@ -1,0 +1,55 @@
+<!--
+    Title: Exercise 7.3 - Form Validation
+    Arthur: Professor Krasso
+    Date: 07/07/2023
+    Description: Base-Layout component
+-->
+
+<!--
+  Replace the prebuilt HTML with an Angular toolbar, main div container
+  and another router-outlet
+-->
+<mat-toolbar color="primary">
+
+  <mat-toolbar-row>
+
+    <div class="logo">
+      <img src="./assets/gpa-calculator-app.png" height="80" alt="Logo" />
+    </div>
+
+    <div style="width: 80%;">
+
+      <div fxLayout="row wrap" fxLayoutAlign="end start">
+        <button mat-button routerLink="/">Home</button>
+
+        <button mat-button (click)="signOut()">Sign Out</button>
+      </div>
+
+    </div>
+
+  </mat-toolbar-row>
+
+</mat-toolbar>
+
+<br />
+
+<!-- Flex layout row with a mat-card, mat-card-title, and mat-card-content  -->
+<div fxLayout="row wrap">
+
+  <div fxFlex>
+
+    <mat-card class="main-container">
+
+      <mat-card-title>{{ assignment }}</mat-card-title>
+
+      <br /><br />
+
+      <mat-card-content>
+        <router-outlet></router-outlet>
+      </mat-card-content>
+
+    </mat-card>
+
+  </div>
+
+</div>

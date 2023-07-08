@@ -1,0 +1,17 @@
+/**
+    Title: Exercise 7.3 - Form Validation
+    Arthur: Professor Krasso
+    Date: 07/07/2023
+    Modified By: Brooks
+    Description: Base-Layout component.
+*/
+
+.logo {
+  margin-top: 5px;
+}
+
+.main-container {
+  padding-top: 25px;
+  width: 80%;
+  margin: 0 auto;
+}

@@ -1,0 +1,92 @@
+<!--
+    Title: Exercise 7.3 Form Validation
+    Arthur: Professor Krasso
+    Date: 07/07/2023
+    Description: signin component
+-->
+
+<div fxLayout="column">
+
+  <div fxFlex><!-- put angular mat-card's inside fxFlex div for better results! -->
+    <mat-card class="mat-elevation-z8 sign-in-container">
+
+      <mat-card-title>
+        Student Sign In
+      </mat-card-title>
+
+      <mat-card-subtitle>
+        You must enter a valid student ID to proceed.
+      </mat-card-subtitle>
+
+
+      <mat-card-content>
+
+        <div class="msg-error" *ngIf="errorMessage">
+          {{ errorMessage }}
+        </div>
+
+<!--
+  Add a new div with an *ngIf that checks for errors
+  and whether the control has been touched.
+
+  Inside the div add another div and apply our error styling.
+  Next, add the error message “Student ID must be a numeric value.
+-->
+        <div *ngIf="signinForm.get('studentId').errors && signinForm.touched">
+
+          <div class="msg-error">Student ID must be a numeric value.</div>
+
+        </div>
+
+
+
+        <mat-card class="mat-elevation-z0" fxLayout="column" fxLayoutGap="10px">
+
+
+<!--
+  Build an Angular material form with one form-field and input of type text
+  and one button of type submit.  The form should include a call to
+  our FormGroup and an ngSubmit call to our submit function
+-->
+          <form [formGroup]="signinForm" (ngSubmit)="onSubmit(); signinForm.reset()">
+
+            <mat-card-content>
+
+              <mat-form-field fxFlex appearance="fill">
+
+                <mat-label for="txtStudentId" id="lblStudentId">Student ID</mat-label>
+
+                <!-- Add an HTML 5 required directive to the input field -->
+                <input
+                  type="text"
+                  matInput
+                  formControlName="studentId"
+                  id="txtStudentId"
+                  name="txtStudentId"
+                  required />
+
+              </mat-form-field>
+
+            </mat-card-content>
+
+            <mat-card-actions>
+
+              <!-- Disable the submit button when the form is invalid -->
+              <button
+                type="submit"
+                fxFlex mat-raised-button
+                color="primary"
+                [disabled]="!signinForm.valid">Submit</button>
+
+            </mat-card-actions>
+
+          </form>
+
+
+        </mat-card>
+
+      </mat-card-content>
+
+    </mat-card>
+  </div>
+</div>
