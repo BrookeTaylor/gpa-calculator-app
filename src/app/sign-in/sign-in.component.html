@@ -8,18 +8,18 @@
 <div fxLayout="column">
 
   <div fxFlex><!-- put angular mat-card's inside fxFlex div for better results! -->
-    <mat-card class="mat-elevation-z8 sign-in-container">
+    <div class="mat-elevation-z8 sign-in-container">
 
-      <mat-card-title>
+      <div>
         Student Sign In
-      </mat-card-title>
+      </div>
 
-      <mat-card-subtitle>
+      <div>
         You must enter a valid student ID to proceed.
-      </mat-card-subtitle>
+      </div>
 
 
-      <mat-card-content>
+      <div>
 
         <div class="msg-error" *ngIf="errorMessage">
           {{ errorMessage }}
@@ -40,7 +40,7 @@
 
 
 
-        <mat-card class="mat-elevation-z0" fxLayout="column" fxLayoutGap="10px">
+        <div class="mat-elevation-z0" fxLayout="column" fxLayoutGap="10px">
 
 
 <!--
@@ -50,11 +50,11 @@
 -->
           <form [formGroup]="signinForm" (ngSubmit)="onSubmit(); signinForm.reset()">
 
-            <mat-card-content>
+            <div>
 
-              <mat-form-field fxFlex appearance="fill">
+              <div>
 
-                <mat-label for="txtStudentId" id="lblStudentId">Student ID</mat-label>
+                <div for="txtStudentId" id="lblStudentId">Student ID</div>
 
                 <!-- Add an HTML 5 required directive to the input field -->
                 <input
@@ -65,11 +65,11 @@
                   name="txtStudentId"
                   required />
 
-              </mat-form-field>
+              </div>
 
-            </mat-card-content>
+            </div>
 
-            <mat-card-actions>
+            <div>
 
               <!-- Disable the submit button when the form is invalid -->
               <button
@@ -78,15 +78,15 @@
                 color="primary"
                 [disabled]="!signinForm.valid">Submit</button>
 
-            </mat-card-actions>
+            </div>
 
           </form>
 
 
-        </mat-card>
+        </div>
 
-      </mat-card-content>
+      </div>
 
-    </mat-card>
+    </div>
   </div>
 </div>

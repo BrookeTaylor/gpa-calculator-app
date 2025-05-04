@@ -9,9 +9,9 @@
   Replace the prebuilt HTML with an Angular toolbar, main div container
   and another router-outlet
 -->
-<mat-toolbar color="primary">
+<div color="primary">
 
-  <mat-toolbar-row>
+  <div>
 
     <div class="logo">
       <img src="./assets/gpa-calculator-app.png" height="80" alt="Logo" />
@@ -27,9 +27,9 @@
 
     </div>
 
-  </mat-toolbar-row>
+  </div>
 
-</mat-toolbar>
+</div>
 
 <br />
 
@@ -38,17 +38,17 @@
 
   <div fxFlex>
 
-    <mat-card class="main-container">
+    <div class="main-container">
 
-      <mat-card-title>{{ assignment }}</mat-card-title>
+      <div>{{ assignment }}</div>
 
       <br /><br />
 
-      <mat-card-content>
+      <div>
         <router-outlet></router-outlet>
-      </mat-card-content>
+      </div>
 
-    </mat-card>
+    </div>
 
   </div>
 

@@ -19,21 +19,21 @@ import { BaseLayoutComponent } from './base-layout/base-layout.component';
 import { NotFoundComponent } from './not-found/not-found.component';
 import { HomeComponent } from './home/home.component';
 
-// Import MatToolbarModule, FlexLayoutModule, MatCardModule, and MatButtonModule
+// Import MatToolbarModule, FlexLayoutModu//le, MatCardModule, //and MatButtonModule
 import { MatToolbarModule } from '@angular/material/toolbar';
-import { FlexLayoutModule } from '@angular/flex-layout';
-import { MatLegacyCardModule as MatCardModule } from '@angular/material/legacy-card';
-import { MatLegacyButtonModule as MatButtonModule } from '@angular/material/legacy-button';
+// import { FlexLayoutModule } from '@angular/flex-layout';
+// import { MatLegacyCardModule// as MatCardModule } from '@angular/material/legacy-card';
+// import { MatLegacyButtonModule// as MatButtonModule } from '@angular/material/legacy-button';
 import { GpaComponent } from './gpa/gpa.component';
 import { GradeSummaryComponent } from './grade-summary/grade-summary.component';
 
-// Add import statements for MatFormFieldModule, MatInputModule, MatListModule,
-// FormsModule, and MatSelectModule
-import { MatLegacyFormFieldModule as MatFormFieldModule } from '@angular/material/legacy-form-field';
-import { MatLegacyInputModule as MatInputModule } from '@angular/material/legacy-input';
-import { MatLegacyListModule as MatListModule } from '@angular/material/legacy-list';
+// Add import statements //for MatFormFieldModu//le, MatInputModu//le, MatListModule,
+// FormsModule, //and MatSelectModule
+// import { MatLegacyFormFieldModule// as MatFormFieldModule } from '@angular/material/legacy-form-field';
+// import { MatLegacyInputModule// as MatInputModule } from '@angular/material/legacy-input';
+// import { MatLegacyListModule// as MatListModule } from '@angular/material/legacy-list';
 import { FormsModule } from '@angular/forms';
-import { MatLegacySelectModule as MatSelectModule } from '@angular/material/legacy-select';
+// import { MatLegacySelectModule// as MatSelectModule } from '@angular/material/legacy-select';
 import { SignInComponent } from './sign-in/sign-in.component';
 
 import { CookieService } from 'ngx-cookie-service';
@@ -57,15 +57,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     BrowserAnimationsModule,
     // Add the imported components to the imports array
     MatToolbarModule,
-    FlexLayoutModule,
-    MatCardModule,
-    MatButtonModule,
+//     FlexLayoutModule,
+//    MatCardModule,
+//    MatButtonModule,
     // Add the imported modules to the imports array
-    MatFormFieldModule,
-    MatInputModule,
-    MatListModule,
+//    MatFormFieldModule,
+//    MatInputModule,
+//    MatListModule,
     FormsModule,
-    MatSelectModule,
+//    MatSelectModule,
     // import ReactiveForms
     ReactiveFormsModule
 

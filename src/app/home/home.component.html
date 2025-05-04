@@ -15,12 +15,12 @@
   also for the rest of this assignment we will refer to this section
   as the “grade-form”)
 -->
-    <mat-card class="mat-card mat-focus-indicator mat-elevation-z8">
+    <div class="mat-card mat-focus-indicator mat-elevation-z8">
 
       <!-- Give the mat-card-title a value of Grade Entry -->
-      <mat-card-title>Grade Entry</mat-card-title>
+      <div>Grade Entry</div>
 
-      <mat-card-content>
+      <div>
 
         <form
           [formGroup]="transcriptForm"
@@ -33,10 +33,10 @@
         <div fxLayout="column" fxLayoutGap="20px">
 
 
-          <mat-form-field fxFlex>
+          <div fxFlex>
 
             <!-- a label of “Course” -->
-            <mat-label>Course</mat-label>
+            <div>Course</div>
 
             <!-- Give the first input field an id of txtCourse. -->
             <!-- map the transcriptEntry.course using the “Banana in a box” -->
@@ -47,21 +47,21 @@
               name="txtCourse"
               formControlName="course" />
 
-          </mat-form-field>
+          </div>
 
 
 
 
-          <mat-form-field fxFlex>
+          <div fxFlex>
 
 
-            <mat-label>Grade</mat-label>
+            <div>Grade</div>
 
 <!--
   Give it a name of “selectGrade” and map the transcriptEntry.grade
   using the “Banana in a box”
 -->
-            <mat-select
+            <div
               formControlName="grade"
               required
               name="selectGrade" >
@@ -70,15 +70,15 @@
   Inside the mat-select, add a mat-option and using *ngFor to loop over
   the selectableGrades
 -->
-            <mat-option
+            <div
             *ngFor="let grade of selectableGrades"
             [value]="grade">
               {{ grade }}
-            </mat-option>
+            </div>
 
-          </mat-select>
+          </div>
 
-          </mat-form-field>
+          </div>
 
 <!--
   Add a button with a display name of Save
@@ -105,10 +105,10 @@
         </form>
 
 
-      </mat-card-content>
+      </div>
 
 
-    </mat-card>
+    </div>
 
   </div>
 
@@ -126,13 +126,13 @@
     </button>
 
 <!-- In the right-hand div add a mat-card -->
-    <mat-card class="mat-card mat-focus-indicator mat-elevation-z8">
+    <div class="mat-card mat-focus-indicator mat-elevation-z8">
 
       <!-- Give the mat-card-title a value of Transcript -->
-      <mat-card-title>Transcript</mat-card-title>
+      <div>Transcript</div>
 
       <!-- in the mat-card-content add the app-grade-summary component -->
-      <mat-card-content>
+      <div>
 
 <!--
   Add an *ngFor loop, iterate over the “transcriptEntries
@@ -142,9 +142,9 @@
           [course]="entry.course"
           [grade]="entry.grade"></app-grade-summary>
 
-      </mat-card-content>
+      </div>
 
-    </mat-card>
+    </div>
 
   </div>
 
@@ -172,21 +172,21 @@
 
 
     <!-- In the div add a mat-card -->
-    <mat-card class="mat-card mat-focus-indicator mat-elevation-z8">
+    <div class="mat-card mat-focus-indicator mat-elevation-z8">
 
       <!-- in the mat-card-title add the app-gpa element after the word GPA: -->
       <!-- Text align the mat-card-title to the center -->
-      <mat-card-title style="text-align: center;">GPA:
+      <div style="text-align: center;">GPA:
 <!--
   Add an input entry to the app-gpa component called [gpaTotal]
   and pass-in the gpaTotal value
 -->
 <app-gpa [gpaTotal]="gpaTotal"></app-gpa>
 
-</mat-card-title>
+</div>
 
 
-    </mat-card>
+    </div>
   </div>
 
 </div>
