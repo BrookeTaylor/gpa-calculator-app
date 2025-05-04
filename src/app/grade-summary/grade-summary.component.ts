@@ -12,9 +12,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
-  selector: 'app-grade-summary',
-  templateUrl: './grade-summary.component.html',
-  styleUrls: ['./grade-summary.component.css']
+    selector: 'app-grade-summary',
+    templateUrl: './grade-summary.component.html',
+    styleUrls: ['./grade-summary.component.css'],
+    standalone: false
 })
 export class GradeSummaryComponent implements OnInit {
 

@@ -15,9 +15,10 @@ import { CookieService } from 'ngx-cookie-service';
 import { Router } from '@angular/router';
 
 @Component({
-  selector: 'app-base-layout',
-  templateUrl: './base-layout.component.html',
-  styleUrls: ['./base-layout.component.css']
+    selector: 'app-base-layout',
+    templateUrl: './base-layout.component.html',
+    styleUrls: ['./base-layout.component.css'],
+    standalone: false
 })
 export class BaseLayoutComponent implements OnInit {
 
