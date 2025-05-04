@@ -15,7 +15,7 @@ import { SignInService } from '../sign-in.service';
 import { Router } from '@angular/router';
 
 // Add an import statement for Validators
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
 import { CookieService } from 'ngx-cookie-service';
 
 
@@ -27,13 +27,13 @@ import { CookieService } from 'ngx-cookie-service';
 export class SignInComponent implements OnInit {
 
   // Add a variable named form of type FormGroup
-  signinForm: FormGroup;
+  signinForm: UntypedFormGroup;
 
   // Add a variable named errorMessage of type string
   errorMessage: string;
 
   // In the components constructor add references to the Router, CookieService, FormBuilder, and SignInService
-  constructor(private router: Router, private cookieService: CookieService, private fb: FormBuilder, private signinService: SignInService) { }
+  constructor(private router: Router, private cookieService: CookieService, private fb: UntypedFormBuilder, private signinService: SignInService) { }
 
   ngOnInit(): void {
 

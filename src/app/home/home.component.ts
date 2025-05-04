@@ -14,7 +14,7 @@ import { Component, OnInit } from '@angular/core';
 import { ITranscript } from '../transcript.interface';
 
 // Add an import statement for FormGroup, FormBuilder, and Validators
-import { FormGroup, FormBuilder, Validators } from '@angular/forms';
+import { UntypedFormGroup, UntypedFormBuilder, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-home',
@@ -43,12 +43,12 @@ export class HomeComponent implements OnInit {
   gpaTotal: number = 0;
 
   // Add a new variable named transcriptForm of type FormGroup
-  transcriptForm: FormGroup;
+  transcriptForm: UntypedFormGroup;
 
 
 
   // Add the FormBuilder to the components constructor
-  constructor(private fb: FormBuilder) { }
+  constructor(private fb: UntypedFormBuilder) { }
 
 
 
