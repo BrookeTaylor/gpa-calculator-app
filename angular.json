@@ -62,18 +62,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "gpa-calculator-app:build"
+            "buildTarget": "gpa-calculator-app:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "gpa-calculator-app:build:production"
+              "buildTarget": "gpa-calculator-app:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "gpa-calculator-app:build"
+            "buildTarget": "gpa-calculator-app:build"
           }
         },
         "test": {
