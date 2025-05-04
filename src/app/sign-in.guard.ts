@@ -9,7 +9,7 @@
 */
 
 import { Injectable } from '@angular/core';
-import { CanActivate, ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
+import { ActivatedRouteSnapshot, RouterStateSnapshot, UrlTree } from '@angular/router';
 import { Observable } from 'rxjs';
 
 // Add import statements for Router and CookieService
@@ -20,7 +20,7 @@ import { CookieService } from 'ngx-cookie-service';
 @Injectable({
   providedIn: 'root'
 })
-export class SignInGuard implements CanActivate {
+export class SignInGuard  {
 
   // for Router and CookieService and add them to the classes constructor
   constructor(private router: Router, private cookieService: CookieService) {
