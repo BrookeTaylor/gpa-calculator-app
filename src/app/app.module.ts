@@ -1,12 +1,11 @@
-/*
-============================================
-; Title: Exercise 7.3 - Form Validation
-; Author: Professor Krasso
-; Date: 07/07/2023
-; Modified By: Brooks
-; Description: app module
-============================================
-*/
+/**
+ * Title: Exercise 7.3 - Form Validation
+ * Instructor: Professor Krasso
+ * Author: Brooke Taylor
+ * Date: 7/7/23
+ * Revision: 5/4/25
+ * Description: App Module
+ */
 
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
@@ -40,6 +39,14 @@ import { CookieService } from 'ngx-cookie-service';
 // Add an import statement for the ReactiveFormsModule
 import { ReactiveFormsModule } from '@angular/forms';
 
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { MatMenuModule } from '@angular/material/menu';
+
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -49,10 +56,15 @@ import { ReactiveFormsModule } from '@angular/forms';
     HomeComponent,
     GpaComponent,
     GradeSummaryComponent,
-    SignInComponent
   ],
   imports: [
     BrowserModule,
+    SignInComponent,
+    MatFormFieldModule,
+    MatInputModule,
+    MatIconModule,
+    MatMenuModule,
+    MatButtonModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     // Add the imported components to the imports array

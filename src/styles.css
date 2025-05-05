@@ -1,12 +1,16 @@
 /**
-    Title: Exercise 7.2 - Reactive Forms
-    Arthur: Professor Krasso
-    Date: 07/04/2023
-    Modified By: Brooks
-    Description: styles scss
+    Title: Exercise 7.2 Reactive Forms
+    Instructor: Professor Krasso
+    Author: Brooke Taylor
+    Date: 7/4/23
+    Revision: 5/4/25
+
+    Description: GPA Calculator App Style Sheet
 */
 
-/* You can add global styles to this file, and also import other style files */
-
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+* {
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}

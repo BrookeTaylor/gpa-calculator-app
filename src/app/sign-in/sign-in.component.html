@@ -1,92 +1,49 @@
 <!--
-    Title: Exercise 7.3 Form Validation
-    Arthur: Professor Krasso
-    Date: 07/07/2023
-    Description: signin component
+    Title: Exercise 7.3 - Reactive Forms
+    Instructor: Professor Krasso
+    Author: Brooke Taylor
+    Date: 7/7/23
+    Revision: 5/4/25
+
+    Description: Sign In Component.
 -->
 
-<div fxLayout="column">
+<div class="container">
+  <div class="card">
+    <h2>Student Sign In</h2>
+    <span>You must enter a valid student ID to proceed</span>
 
-  <div fxFlex><!-- put angular mat-card's inside fxFlex div for better results! -->
-    <div class="mat-elevation-z8 sign-in-container">
+    <form [formGroup]="signinForm" (ngSubmit)="onSubmit(); signinForm.reset()">
 
-      <div>
-        Student Sign In
+      <!-- Error space ABOVE the input -->
+      <div class="error-space">
+        <div class="msg-error" *ngIf="signinForm.get('studentId')?.hasError('required') && signinForm.get('studentId')?.touched">
+          Student ID is required.
+        </div>
+        <div class="msg-error" *ngIf="signinForm.get('studentId')?.hasError('pattern') && signinForm.get('studentId')?.touched">
+          Student ID must be a numeric value.
+        </div>
       </div>
 
-      <div>
-        You must enter a valid student ID to proceed.
-      </div>
+      <mat-form-field appearance="fill">
+        <mat-label>Student ID</mat-label>
+        <input
+          matInput
+          formControlName="studentId"
+          id="txtStudentId"
+          required />
+      </mat-form-field>
 
+      <button
+        type="submit"
+        mat-raised-button
+        color="primary"
+        [disabled]="!signinForm.valid">Submit</button>
 
-      <div>
+    </form>
 
-        <div class="msg-error" *ngIf="errorMessage">
-          {{ errorMessage }}
-        </div>
-
-<!--
-  Add a new div with an *ngIf that checks for errors
-  and whether the control has been touched.
-
-  Inside the div add another div and apply our error styling.
-  Next, add the error message “Student ID must be a numeric value.
--->
-        <div *ngIf="signinForm.get('studentId').errors && signinForm.touched">
-
-          <div class="msg-error">Student ID must be a numeric value.</div>
-
-        </div>
-
-
-
-        <div class="mat-elevation-z0" fxLayout="column" fxLayoutGap="10px">
-
-
-<!--
-  Build an Angular material form with one form-field and input of type text
-  and one button of type submit.  The form should include a call to
-  our FormGroup and an ngSubmit call to our submit function
--->
-          <form [formGroup]="signinForm" (ngSubmit)="onSubmit(); signinForm.reset()">
-
-            <div>
-
-              <div>
-
-                <div for="txtStudentId" id="lblStudentId">Student ID</div>
-
-                <!-- Add an HTML 5 required directive to the input field -->
-                <input
-                  type="text"
-                  matInput
-                  formControlName="studentId"
-                  id="txtStudentId"
-                  name="txtStudentId"
-                  required />
-
-              </div>
-
-            </div>
-
-            <div>
-
-              <!-- Disable the submit button when the form is invalid -->
-              <button
-                type="submit"
-                fxFlex mat-raised-button
-                color="primary"
-                [disabled]="!signinForm.valid">Submit</button>
-
-            </div>
-
-          </form>
-
-
-        </div>
-
-      </div>
-
-    </div>
   </div>
 </div>
+
+
+

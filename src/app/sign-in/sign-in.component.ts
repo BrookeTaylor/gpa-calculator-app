@@ -1,98 +1,66 @@
-/*
-============================================
-; Title: Exercise 7.3 Form Validation
-; Author: Professor Krasso
-; Date: 07/07/2023
-; Modified By: Brooks
-; Description: signin module
-============================================
-*/
+/**
+ * Title: Exercise 7.3 - Form Validation
+ * Instructor: Professor Krasso
+ * Author: Brooke Taylor
+ * Date: 7/7/23
+ * Revision: 5/4/25
+ * Description: Sign In Component
+ */
 
-import { Component, OnInit } from '@angular/core';
-
-// Import the SignInService, Router, FormBuilder, FormGroup, and CookieService
-import { SignInService } from '../sign-in.service';
+import { Component } from '@angular/core';
+import { FormBuilder, FormGroup, Validators, ReactiveFormsModule } from '@angular/forms';
 import { Router } from '@angular/router';
-
-// Add an import statement for Validators
-import { UntypedFormBuilder, UntypedFormGroup, Validators } from '@angular/forms';
+import { CommonModule } from '@angular/common';
 import { CookieService } from 'ngx-cookie-service';
-
+import { SignInService } from '../sign-in.service';
+import { MatFormFieldModule } from '@angular/material/form-field';
+import { MatInputModule } from '@angular/material/input';
+import { MatButtonModule } from '@angular/material/button';
 
 @Component({
-    selector: 'app-sign-in',
-    templateUrl: './sign-in.component.html',
-    styleUrls: ['./sign-in.component.css'],
-    standalone: false
+  selector: 'app-sign-in',
+  standalone: true,
+  imports: [
+    CommonModule,
+    ReactiveFormsModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule
+  ],
+  templateUrl: './sign-in.component.html',
+  styleUrls: ['./sign-in.component.css']
 })
-export class SignInComponent implements OnInit {
+export class SignInComponent {
+  signinForm: FormGroup;
+  errorMessage: string = '';
 
-  // Add a variable named form of type FormGroup
-  signinForm: UntypedFormGroup;
-
-  // Add a variable named errorMessage of type string
-  errorMessage: string;
-
-  // In the components constructor add references to the Router, CookieService, FormBuilder, and SignInService
-  constructor(private router: Router, private cookieService: CookieService, private fb: UntypedFormBuilder, private signinService: SignInService) { }
-
-  ngOnInit(): void {
-
-    // In the components ngOnInit function use the FormBuilder to create
-    // a new FormGroup with one FormControl named studentId
+  constructor(
+    private fb: FormBuilder,
+    private router: Router,
+    private cookieService: CookieService,
+    private signinService: SignInService
+  ) {
     this.signinForm = this.fb.group({
-
-      // Add Angulars built-in required Validator to the form.
-      // Only allow numeric values and make the field required
       studentId: [
         '',
-        Validators.compose([
-          Validators.required,
-          Validators.pattern('^[0-9]*$')
-        ])
+        [Validators.required, Validators.pattern('^[0-9]*$')]
       ]
     });
-
   }
 
-  // Add a new function named onSubmit()
-  onSubmit() {
-
-    // In the body of the onSubmit function, get the studentId value from
-    // the studentId FormControl. captures.
+  onSubmit(): void {
     const formValues = this.signinForm.value;
+    const studentId = parseInt(formValues.studentId, 10);
 
-    // holds value.
-    const studentId = parseInt(formValues.studentId);
-
-    // Next, create an if statement that compares the returned value from
-    // the signinService.validate() function
     if (this.signinService.validate(studentId)) {
-
-      // If true, add a cookie to the users browser and
-      // use the Router to navigate them to the root path
       this.cookieService.set('session_user', studentId.toString(), 1);
-      this.router.navigate(['/'])
-
+      this.router.navigate(['/']);
     } else {
-
-      // Otherwise, assign an error message to the errorMessage variable
-      this.errorMessage = 'This student ID you entered is invalid, please try again.';
-
+      this.errorMessage = 'The student ID you entered is invalid, please try again.';
     }
   }
 
-
-/**
- * Add a get() function  named form that returns the signinForm controls
- *
- * We are creating this as a helper function to return the forms controls.
- *
- * This way we can apply client-side validation in a predictable way
- */
   get form() {
     return this.signinForm.controls;
   }
-
-
 }

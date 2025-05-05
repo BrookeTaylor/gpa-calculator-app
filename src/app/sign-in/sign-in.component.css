@@ -1,23 +1,73 @@
 /**
-    Title: Exercise 7.3 - Form Validation
-    Arthur: Professor Krasso
-    Date: 07/07/2023
-    Modified By: Brooks
-    Description: signin styles css
+    Title: Exercise 7.3 Form Validation
+    Instructor: Professor Krasso
+    Author: Brooke Taylor
+    Date: 7/7/23
+    Revision: 5/4/25
+
+    Description: Sign In Style Sheet
 */
 
-.sign-in-container {
-  width: 35%;
-  margin: 15% auto;
+.container {
+  display: flex;
+  justify-content: center;
+  height: 100vh;
+  background-color: #f0f3f4;
+}
+
+.card {
+  background-color: #ffffff;
+  margin-top: auto;
+  margin-bottom: auto;
+  width: 80%;
+  padding: 2em;
+  box-shadow:
+    0 0 4px rgba(0,0,0,0.2),
+    4px 8px 8px rgba(0,0,0,0.2);
+}
+
+.card:hover {
+  box-shadow: 4px 8px 8px rgba(0,0,0,0.4);
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.error-space {
+  min-height: 2.5em; /* enough for one line of error + padding */
+  margin-bottom: 0.5em;
 }
 
 .msg-error {
-  margin: 10px 0;
-  padding: 12px;
-  color: #d8000C;
+  color: #d8000c;
   background-color: #ffd2d2;
+  padding: 0.25em 0.5em;
+  border-radius: 4px;
+  font-size: 0.875em;
 }
 
-.signin-container > mat-card-title, mat-card-subtitle {
-  text-align: center;
+span {
+  color: darkgray;
 }
+
+@media (min-width: 576px) {
+  .card {
+    width: 60%;
+  }
+}
+
+@media (min-width: 768px) {
+  .card {
+    width: 45%;
+  }
+}
+
+@media (min-width: 992px) {
+  .card {
+    width: 30%;
+  }
+}
+

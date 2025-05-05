@@ -1,55 +1,65 @@
 <!--
     Title: Exercise 7.3 - Form Validation
-    Arthur: Professor Krasso
-    Date: 07/07/2023
-    Description: Base-Layout component
+    Instructor: Professor Krasso
+    Author: Brooke Taylor
+    Date: 7/7/23
+    Revision: 5/4/25
+
+    Description: Base Layout Component.
 -->
+
+
+<div class="container">
 
 <!--
   Replace the prebuilt HTML with an Angular toolbar, main div container
   and another router-outlet
 -->
-<div color="primary">
+  <mat-toolbar color="primary" class="navbar" role="navigation">
 
-  <div>
+    <a routerLink="/" class="logo-link">
+      <img src="./assets/gpa-calculator-app.png" height="60" alt="Logo" />
+    </a>
 
-    <div class="logo">
-      <img src="./assets/gpa-calculator-app.png" height="80" alt="Logo" />
-    </div>
+    <span class="spacer"></span>
 
-    <div style="width: 80%;">
+    <button mat-button routerLink="/">Home</button>
+    <button mat-button (click)="signOut()">Sign Out</button>
 
-      <div fxLayout="row wrap" fxLayoutAlign="end start">
-        <button mat-button routerLink="/">Home</button>
+  </mat-toolbar>
 
-        <button mat-button (click)="signOut()">Sign Out</button>
+
+
+    <br />
+
+
+
+    <!--
+
+    ***** CALLING IT A NIGHT HERE *****
+
+    -->
+
+
+    <!-- Flex layout row with a mat-card, mat-card-title, and mat-card-content  -->
+    <div fxLayout="row wrap">
+
+      <div fxFlex>
+
+        <div class="main-container">
+
+          <div>{{ assignment }}</div>
+
+          <br /><br />
+
+          <div>
+            <router-outlet></router-outlet>
+          </div>
+
+        </div>
+
       </div>
 
     </div>
 
   </div>
-
-</div>
-
-<br />
-
-<!-- Flex layout row with a mat-card, mat-card-title, and mat-card-content  -->
-<div fxLayout="row wrap">
-
-  <div fxFlex>
-
-    <div class="main-container">
-
-      <div>{{ assignment }}</div>
-
-      <br /><br />
-
-      <div>
-        <router-outlet></router-outlet>
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
