@@ -4,7 +4,7 @@
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
-    "build": "ng build",
+    "build": "ng build --configuration=production --base-href=/gpa-calculator-app/",
     "deploy": "npm run build && npx angular-cli-ghpages -d dist/gpa-calculator-app/browser",
     "test": "ng test",
     "lint": "ng lint",
