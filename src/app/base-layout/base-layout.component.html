@@ -3,7 +3,7 @@
     Instructor: Professor Krasso
     Author: Brooke Taylor
     Date: 7/7/23
-    Revision: 5/4/25
+    Revision: 5/5/25
 
     Description: Base Layout Component.
 -->
@@ -12,8 +12,8 @@
 <div class="container">
 
 <!--
-  Replace the prebuilt HTML with an Angular toolbar, main div container
-  and another router-outlet
+Replace the prebuilt HTML with an Angular toolbar, main div container
+and another router-outlet
 -->
   <mat-toolbar color="primary" class="navbar" role="navigation">
 
@@ -29,37 +29,8 @@
   </mat-toolbar>
 
 
+  <h1>{{ assignment }}</h1>
 
-    <br />
+  <router-outlet></router-outlet>
 
-
-
-    <!--
-
-    ***** CALLING IT A NIGHT HERE *****
-
-    -->
-
-
-    <!-- Flex layout row with a mat-card, mat-card-title, and mat-card-content  -->
-    <div fxLayout="row wrap">
-
-      <div fxFlex>
-
-        <div class="main-container">
-
-          <div>{{ assignment }}</div>
-
-          <br /><br />
-
-          <div>
-            <router-outlet></router-outlet>
-          </div>
-
-        </div>
-
-      </div>
-
-    </div>
-
-  </div>
+</div>

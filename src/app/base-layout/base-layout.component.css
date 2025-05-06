@@ -3,13 +3,14 @@
     Instructor: Professor Krasso
     Author: Brooke Taylor
     Date: 7/7/23
-    Revision: 5/4/25
+    Revision: 5/6/25
 
     Description: Base Layout Style Sheet
 */
 
 .container {
   background-color: #f0f3f4;
+  min-height: 100vh;
 }
 
 .logo {
@@ -24,4 +25,9 @@
 
 .spacer {
   flex: 1 1 auto;
+}
+
+h1 {
+  text-align: center;
+  margin: 1em;
 }

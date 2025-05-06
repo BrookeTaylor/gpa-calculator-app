@@ -1,192 +1,127 @@
 <!--
     Title: Exercise 7.3 - Form Validation
-    Arthur: Professor Krasso
-    Date: 07/07/2023
-    Description: home component
+    Instructor: Professor Krasso
+    Author: Brooke Taylor
+    Date: 7/7/23
+    Revision: 5/6/25
+
+    Description: Home Component.
 -->
 
-<!-- Using flex layout create one row with two divs side-by-side -->
-<div fxLayout="row wrap" fxLayoutGap="20px">
+<div class="container">
 
-  <div fxFlex="50%" class="grade-form">
+  <div class="flex-center">
 
-<!--
-  In the left-hand div add a mat-card (this will be reserved for a form;
-  also for the rest of this assignment we will refer to this section
-  as the “grade-form”)
--->
-    <div class="mat-card mat-focus-indicator mat-elevation-z8">
+    <div class="card">
 
-      <!-- Give the mat-card-title a value of Grade Entry -->
-      <div>Grade Entry</div>
-
-      <div>
+      <h2>Grade Entry</h2>
 
         <form
           [formGroup]="transcriptForm"
           (ngSubmit)="onSubmit($event); transcriptForm.reset()">
 
-<!--
-  Inside the mat-content add a form with with two form fields
-  (input and mat-select), and mat-labels
--->
-        <div fxLayout="column" fxLayoutGap="20px">
-
-
-          <div fxFlex>
-
-            <!-- a label of “Course” -->
-            <div>Course</div>
-
-            <!-- Give the first input field an id of txtCourse. -->
-            <!-- map the transcriptEntry.course using the “Banana in a box” -->
+          <!-- Course Entry -->
+          <mat-form-field appearance="fill">
+            <mat-label>Course</mat-label>
             <input
               matInput
               required
               id="txtCourse"
               name="txtCourse"
               formControlName="course" />
+          </mat-form-field>
 
-          </div>
+          <br>
 
-
-
-
-          <div fxFlex>
-
-
-            <div>Grade</div>
-
-<!--
-  Give it a name of “selectGrade” and map the transcriptEntry.grade
-  using the “Banana in a box”
--->
-            <div
-              formControlName="grade"
+          <!-- Grade Entry -->
+          <mat-form-field appearance="fill">
+            <mat-label>Grade</mat-label>
+            <mat-select
               required
-              name="selectGrade" >
+              id="selectGrade"
+              name="selectGrade"
+              formControlName="grade">
 
-<!--
-  Inside the mat-select, add a mat-option and using *ngFor to loop over
-  the selectableGrades
--->
-            <div
-            *ngFor="let grade of selectableGrades"
-            [value]="grade">
-              {{ grade }}
-            </div>
+              <mat-option
+                *ngFor="let grade of selectableGrades"
+                [value]="grade">
+                  {{ grade }}
+              </mat-option>
 
-          </div>
+            </mat-select>
+          </mat-form-field>
 
-          </div>
+          <br>
 
-<!--
-  Add a button with a display name of Save
-  (this goes inside the mat-content element)
-
-  Give the button an id of btnSave and
-  add a click event to call the saveEntry() function
-
-  Remove the click event from the form, change the buttons type to submit,
-  and disable it when the form is invalid
--->
           <button
             type="submit"
             [disabled]="!transcriptForm.valid"
             mat-raised-button
             color="primary"
             id="btnSave">
-            Save
+
+              Save
           </button>
-
-
-        </div>
 
         </form>
 
+    </div><!-- /card -->
+
+  </div><!-- (1st) /flex-center -->
+
+  <div class="flex-container">
+
+    <div class="flex-left">
+
+      <div class="transcript">
+
+        <button mat-button color="primary" (click)="clearEntries()">
+          Clear Transcript
+        </button>
+
+        <div class="card">
+
+          <h2>Transcript</h2>
+
+          <div class="summary">
+            <app-grade-summary
+              *ngFor="let entry of transcriptEntries"
+              [course]="entry.course"
+              [grade]="entry.grade">
+            </app-grade-summary>
+          </div>
+
+        </div>
+
+      </div>
+
+    </div><!-- /flex-left -->
+    <div class="flex-right">
+
+      <div class="gpa">
+
+        <button
+          mat-button
+          color="primary"
+          (click)="calculateResults()">
+
+            Calculate GPA
+        </button>
+
+        <div class="card">
+
+        <h2>GPA</h2>
+
+        <div class="gpa">
+          <span>GPA: <app-gpa [gpaTotal]="gpaTotal"></app-gpa></span>
+        </div>
 
       </div>
 
 
-    </div>
 
-  </div>
+    </div><!-- /flex-right -->
 
-
-
-
-  <div fxFlex="50%" fxFlex class="grade-summary">
-
-<!--
-  Add a button above the mat-card in the grade-summary section,
-  call the clearEntries() function and give it a title of “Clear Transcript”
--->
-    <button mat-button color="primary" (click)="clearEntries()">
-      Clear Transcript
-    </button>
-
-<!-- In the right-hand div add a mat-card -->
-    <div class="mat-card mat-focus-indicator mat-elevation-z8">
-
-      <!-- Give the mat-card-title a value of Transcript -->
-      <div>Transcript</div>
-
-      <!-- in the mat-card-content add the app-grade-summary component -->
-      <div>
-
-<!--
-  Add an *ngFor loop, iterate over the “transcriptEntries
-  and assign the variables as input values
--->
-        <app-grade-summary *ngFor="let entry of transcriptEntries"
-          [course]="entry.course"
-          [grade]="entry.grade"></app-grade-summary>
-
-      </div>
-
-    </div>
-
-  </div>
-
-</div>
-
-
-
-
-<br />
-
-
-<!-- Using flex layout create one column underneath the two side-by-side columns -->
-<div fxLayout="column" fxLayoutGap="20px">
-
-
-  <div fxFlex class="gpa">
-
-<!--
-  Add a button above the card in the gpa section and give it a (click) event
-  to call the calculateResults() event and name the button “Calculate GPA
--->
-<button mat-button color="primary" (click)="calculateResults()">
-  Calculate GPA
-</button>
-
-
-    <!-- In the div add a mat-card -->
-    <div class="mat-card mat-focus-indicator mat-elevation-z8">
-
-      <!-- in the mat-card-title add the app-gpa element after the word GPA: -->
-      <!-- Text align the mat-card-title to the center -->
-      <div style="text-align: center;">GPA:
-<!--
-  Add an input entry to the app-gpa component called [gpaTotal]
-  and pass-in the gpaTotal value
--->
-<app-gpa [gpaTotal]="gpaTotal"></app-gpa>
-
-</div>
-
-
-    </div>
-  </div>
+  </div><!-- /flex-container -->
 
 </div>
