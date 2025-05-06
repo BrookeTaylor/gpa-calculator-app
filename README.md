@@ -143,3 +143,6 @@ Description: GPA Calculator App Setup.
         ng add angular-cli-ghpages 
 
         ng deploy --base-href=/gpa-calculator-app/
+
+        npx angular-cli-ghpages --dir=dist/gpa-calculator-app
+
