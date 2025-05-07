@@ -1,32 +1,30 @@
 <!--
     Title: Exercise 7.3 - Form Validation
-    Arthur: Professor Krasso
-    Date: 07/07/2023
-    Description: not-found component
+    Instructor: Professor Krasso
+    Author: Brooke Taylor
+    Date: 7/7/23
+    Revision: 5/7/25
+
+    Description: Not Found Component.
 -->
 
-<div fxLayout="column">
+<div class="container">
 
-  <div fxFlex style="margin-top: 10%; width: 50%; margin-left: 18%;" class="mat-elevation-z0">
+  <div class="card">
 
-    <div fxLayoutAlign="center">
-      <h1>404 Not Found</h1>
-    </div>
+    <h1>404: Page not found.</h1>
 
 
-    <div fxLayoutAlign="center">
+    <figure class="img">
       <img src="./assets/not-found-image.png" alt="Page Not Found" />
-    </div>
+    </figure>
 
+    <p>We apologize, but the page you're looking for does not exist.</p>
 
-    <div style="text-align: center; padding-left: 30%;">
+    <button mat-raised-button color="accent" routerLink="/">Return home</button>
 
-      <p>We apologize, but the page you're looking for does not exist.</p>
-
-      <button mat-raised-button color="accent" routerLink="/">Return home</button>
-
-    </div>
 
   </div>
+
 
 </div>

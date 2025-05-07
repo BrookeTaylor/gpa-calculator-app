@@ -1,0 +1,59 @@
+/**
+    Title: Exercise 7.3 Form Validation
+    Instructor: Professor Krasso
+    Author: Brooke Taylor
+    Revision: 5/7/25
+
+    Description: Not Found Style Sheet
+*/
+
+.container {
+  display: flex;
+  justify-content: center;
+  padding: 5%;
+  height: 100vh;
+  background-color: #f0f3f4;
+}
+
+.card {
+  background-color: #ffffff;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 2em;
+  box-shadow:
+  0 0 4px rgba(0,0,0,0.2),
+  4px 8px 8px rgba(0,0,0,0.2);
+}
+
+.card:hover {
+  box-shadow: 4px 8px 8px rgba(0,0,0,0.4);
+}
+
+img {
+  width: 100%;
+}
+
+.img img {
+  width: 100;
+  max-width: 100%;
+  height: auto;
+}
+
+
+@media (min-width: 576px) {
+  .card {
+    width: 60%;
+  }
+}
+
+@media (min-width: 768px) {
+  .card {
+    width: 45%;
+  }
+}
+
+@media (min-width: 992px) {
+  .card {
+    width: 30%;
+  }
+}
