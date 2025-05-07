@@ -3,75 +3,75 @@
     Instructor: Professor Krasso
     Author: Brooke Taylor
     Date: 7/7/23
-    Revision: 5/6/25
+    Revision: 5/7/25
 
     Description: Home Component.
 -->
 
 <div class="container">
 
-  <div class="flex-center">
-
-    <div class="card">
-
-      <h2>Grade Entry</h2>
-
-        <form
-          [formGroup]="transcriptForm"
-          (ngSubmit)="onSubmit($event); transcriptForm.reset()">
-
-          <!-- Course Entry -->
-          <mat-form-field appearance="fill">
-            <mat-label>Course</mat-label>
-            <input
-              matInput
-              required
-              id="txtCourse"
-              name="txtCourse"
-              formControlName="course" />
-          </mat-form-field>
-
-          <br>
-
-          <!-- Grade Entry -->
-          <mat-form-field appearance="fill">
-            <mat-label>Grade</mat-label>
-            <mat-select
-              required
-              id="selectGrade"
-              name="selectGrade"
-              formControlName="grade">
-
-              <mat-option
-                *ngFor="let grade of selectableGrades"
-                [value]="grade">
-                  {{ grade }}
-              </mat-option>
-
-            </mat-select>
-          </mat-form-field>
-
-          <br>
-
-          <button
-            type="submit"
-            [disabled]="!transcriptForm.valid"
-            mat-raised-button
-            color="primary"
-            id="btnSave">
-
-              Save
-          </button>
-
-        </form>
-
-    </div><!-- /card -->
-
-  </div><!-- (1st) /flex-center -->
-
   <div class="flex-container">
 
     <div class="flex-left">
+
+      <div class="card">
+
+        <h2>Grade Entry</h2>
+
+          <form
+            [formGroup]="transcriptForm"
+            (ngSubmit)="onSubmit($event); transcriptForm.reset()">
+
+            <!-- Course Entry -->
+            <mat-form-field appearance="fill">
+              <mat-label>Course</mat-label>
+              <input
+                matInput
+                required
+                id="txtCourse"
+                name="txtCourse"
+                formControlName="course" />
+            </mat-form-field>
+
+            <br>
+
+            <!-- Grade Entry -->
+            <mat-form-field appearance="fill">
+              <mat-label>Grade</mat-label>
+              <mat-select
+                required
+                id="selectGrade"
+                name="selectGrade"
+                formControlName="grade">
+
+                <mat-option
+                  *ngFor="let grade of selectableGrades"
+                  [value]="grade">
+                    {{ grade }}
+                </mat-option>
+
+              </mat-select>
+            </mat-form-field>
+
+            <br>
+
+            <button
+              type="submit"
+              [disabled]="!transcriptForm.valid"
+              mat-raised-button
+              color="primary"
+              id="btnSave">
+
+                Save
+            </button>
+
+          </form>
+
+      </div><!-- /card -->
+
+    </div><!-- /flex-left -->
+
+    <div class="flex-right">
 
       <div class="transcript">
 
@@ -91,37 +91,36 @@
             </app-grade-summary>
           </div>
 
-        </div>
+        </div><!-- /card -->
 
-      </div>
-
-    </div><!-- /flex-left -->
-    <div class="flex-right">
-
-      <div class="gpa">
-
-        <button
-          mat-button
-          color="primary"
-          (click)="calculateResults()">
-
-            Calculate GPA
-        </button>
-
-        <div class="card">
-
-        <h2>GPA</h2>
-
-        <div class="gpa">
-          <span>GPA: <app-gpa [gpaTotal]="gpaTotal"></app-gpa></span>
-        </div>
-
-      </div>
-
-
+      </div><!-- /transcript -->
 
     </div><!-- /flex-right -->
 
   </div><!-- /flex-container -->
 
-</div>
+  <div class="flex-center">
+
+    <div class="gpa">
+
+      <button
+        mat-button
+        color="primary"
+        (click)="calculateResults()">
+
+          Calculate GPA
+      </button>
+
+      <div class="card">
+
+        <h2>GPA</h2>
+
+          <span>GPA: <app-gpa [gpaTotal]="gpaTotal"></app-gpa></span>
+
+      </div><!-- /card -->
+
+    </div><!-- /gpa -->
+
+  </div><!-- /flex-center -->
+
+</div><!-- /container -->
