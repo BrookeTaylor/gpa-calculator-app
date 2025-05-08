@@ -23,6 +23,15 @@
   box-shadow:
   0 0 4px rgba(0,0,0,0.2),
   4px 8px 8px rgba(0,0,0,0.2);
+
+  display: flex;
+  flex-direction: column;
+}
+
+.card button {
+  max-width: 75%;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .card:hover {
@@ -42,18 +51,18 @@ img {
 
 @media (min-width: 576px) {
   .card {
-    width: 60%;
+    width: 80%;
   }
 }
 
 @media (min-width: 768px) {
   .card {
-    width: 45%;
+    width: 65%;
   }
 }
 
 @media (min-width: 992px) {
   .card {
-    width: 30%;
+    width: 50%;
   }
 }

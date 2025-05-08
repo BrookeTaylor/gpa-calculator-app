@@ -160,6 +160,12 @@ export class HomeComponent implements OnInit {
   }
 
 
+  removeEntry(index: number): void {
+    this.transcriptEntries.splice(index, 1);
+  }
+
+
+
 }
 
 

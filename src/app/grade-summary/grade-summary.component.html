@@ -3,17 +3,15 @@
     Instructor: Professor Krasso
     Author: Brooke Taylor
     Date: 7/7/23
-    Revision: 5/6/25
+    Revision: 5/7/25
 
     Description: Grade Summary Component.
 -->
 
 
-
-<div class="space">
-
-  {{ course }} | {{ grade }}
-
+<div class="transcript-entry">
+  <span>{{ course }} | {{ grade }}</span>
+  <button class="remove-btn" (click)="removeEntry()">
+    &times;
+  </button>
 </div>
-
-

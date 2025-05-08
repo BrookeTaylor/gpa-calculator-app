@@ -84,11 +84,14 @@
           <h2>Transcript</h2>
 
           <div class="summary">
+
             <app-grade-summary
-              *ngFor="let entry of transcriptEntries"
+              *ngFor="let entry of transcriptEntries; let i = index"
               [course]="entry.course"
-              [grade]="entry.grade">
+              [grade]="entry.grade"
+              (remove)="removeEntry(i)">
             </app-grade-summary>
+
           </div>
 
         </div><!-- /card -->
